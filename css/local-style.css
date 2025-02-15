@@ -1,0 +1,113 @@
+:root {
+    --primary-color: #1a237e;
+    --accent-color: #4CAF50;
+    --hover-color: #f44336;
+    --text-light: #ffffff;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.container-header {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.container-header h1 {
+    color: var(--text-light);
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.container-nav {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.list-nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-nav li {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    position: relative;
+}
+
+.list-nav li:hover {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+}
+
+.list-nav li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--hover-color);
+    transition: all var(--transition-speed);
+    transform: translateX(-50%);
+}
+
+.list-nav li:hover::after {
+    width: 100%;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main p {
+    text-align: justify;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.container-footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .list-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container-header h1 {
+        font-size: 1.5rem;
+    }
+}
